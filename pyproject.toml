@@ -1,0 +1,41 @@
+[project]
+name = "grafana-dashboards"
+version = "4.0.0.20250903"
+description = "Ivory Tower Wizardry"
+
+keywords = ["grafana", "dashboards", "infrastructure-as-code", "iac"]
+
+authors = [{ name = "Bob Tanner", email = "tanner@real-time.com" }]
+
+maintainers = [{ name = "Bob Tanner", email = "tanner@real-time.com" }]
+
+requires-python = ">=3.11"
+readme = "README.md"
+license = { file = "LICENSE" }
+
+# https://pypi.org/classifiers/
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+]
+
+dependencies = []
+
+[tool.uv]
+dev-dependencies = ["pre-commit>=4.1.0", "git-filter-repo"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["tools"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# https://packaging.python.org/en/latest/specifications/well-known-project-urls/#well-known-labels
+[project.urls]
+Homepage = "https://github.com/basictheprogram/grafana-dashboards"
+Documentation = "https://readthedocs.org"
+Repository = "https://github.com/basictheprogram/grafana-dashboards"
+Issues = "https://github.com/Gattancha-Computer-Services/grafana-dashboards/issues"
+Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"

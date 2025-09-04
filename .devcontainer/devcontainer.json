@@ -1,0 +1,46 @@
+{
+    "name": "real-time.com Grafana Dashboards",
+    "dockerComposeFile": [
+        "compose.yml"
+    ],
+    "service": "vscode",
+    "workspaceFolder": "/workspace",
+    "shutdownAction": "stopCompose",
+    "features": {
+        "ghcr.io/dhoeric/features/hadolint:1": {},
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+        "./features/alloy": {}
+    },
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "exiasr.hadolint",
+                "mosapride.zenkaku",
+                "ms-azuretools.vscode-docker",
+                "redhat.vscode-yaml",
+                "shardulm94.trailing-spaces",
+                "tamasfe.even-better-toml",
+                "yzhang.markdown-all-in-one",
+                "codezombiech.gitignore",
+                "usernamehw.errorlens",
+                "PKief.material-icon-theme",
+                "oderwat.indent-rainbow",
+                "GitHub.copilot-chat",
+                "Grafana.grafana-alloy",
+                "Grafana.grafana-vscode"
+            ]
+        }
+    },
+    "containerEnv": {
+        "DISPLAY": "dummy",
+        "PYTHONUNBUFFERED": "True",
+        "UV_LINK_MODE": "copy",
+        "UV_PROJECT_ENVIRONMENT": "/home/vscode/.venv"
+    },
+    "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+    "postStartCommand": "uv run pre-commit install",
+    "remoteUser": "vscode"
+}

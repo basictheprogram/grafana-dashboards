@@ -1,0 +1,11 @@
+{
+    "id": "alloy",
+    "name": "Alloy",
+    "version": "1.0.0",
+    "description": "Installs Grafana Alloy",
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils:1"
+    ],
+    "options": {},
+    "mounts": []
+}
