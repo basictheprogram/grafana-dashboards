@@ -11,9 +11,9 @@ A comprehensive Grafana Dashboard that shows an overview of all servers, and als
 
 ### Dependencies
 
-* Grafana - Version 11.6 or newer
-* Windows Exporter v0.30.0 or newer
-  
+* Grafana - Version 12.1.1 or newer
+* Windows Exporter v0.31.2 or newer
+
 ### Installing The Dashboard
 
 * You will need to download the JSON and import it into Grafana
@@ -30,7 +30,7 @@ A comprehensive Grafana Dashboard that shows an overview of all servers, and als
 * Log into your Grafana server
 * Open ```/etc/prometheus``` in a suitable editor, such as VIM, NANO, etc
 * Depending on your setup this may or maynot already exist, but this is an example of what you need to add:
-  
+
 ```
   - job_name: 'windows'
     scrape_interval: 5s
@@ -52,34 +52,38 @@ $installfile = "D:\Windows Exporter\windows_exporter-0.30.6-amd64.msi"
 
 Hyper-V:
 ```
-msiexec /i $InstallFile ENABLED_COLLECTORS="cache,cpu,cpu_info,cs,hyperv,logical_disk,logon,memory,net,os,process,system,tcp,time,thermalzone" LISTEN_PORT="9115" /q
+msiexec /i $InstallFile ENABLED_COLLECTORS="cache,cpu,cpu_info,hyperv,logical_disk,logon,memory,net,os,process,system,tcp,time,thermalzone" LISTEN_PORT="9115" /q
 ```
-Domain Controller: 
+Domain Controller:
 ```
-msiexec /i $InstallFile ENABLED_COLLECTORS="ad,adcs,cache,cpu,cpu_info,cs,dfsr,dhcp,dns,logical_disk,logon,memory,net,os,system,tcp,time,terminal_services" LISTEN_PORT="9115" /q
+msiexec /i $InstallFile ENABLED_COLLECTORS="ad,adcache,cpu,cpu_info,dfsr,dhcp,dns,logical_disk,logon,memory,net,os,system,tcp,time,terminal_services" LISTEN_PORT="9115" /q
 ```
 Generic Server:
 ```
-msiexec /i $InstallFile ENABLED_COLLECTORS="cache,cpu,cpu_info,cs,logical_disk,logon,memory,net,os,process,system,tcp,time" LISTEN_PORT="9115" /q
+msiexec /i $InstallFile ENABLED_COLLECTORS="cache,cpu,cpu_info,logical_disk,logon,memory,net,os,process,system,tcp,time" LISTEN_PORT="9115" /q
 ```
 Print Server:
 ```
-msiexec /i $InstallFile ENABLED_COLLECTORS="cache,cpu,cpu_info,cs,logical_disk,logon,memory,net,os,printer,process,system,tcp,time" LISTEN_PORT="9115" /q
+msiexec /i $InstallFile ENABLED_COLLECTORS="cache,cpu,cpu_info,logical_disk,logon,memory,net,os,printer,process,system,tcp,time" LISTEN_PORT="9115" /q
 ```
 SCCM/ConfigMgr Server
 ```
-msiexec /i $InstallFile ENABLED_COLLECTORS="cache,cpu,cpu_info,cs,dfsr,iis,mssql,logical_disk,logon,memory,net,os,process,tcp,time,netframework,remote_fx,service,system" LISTEN_PORT="9115" /q
+msiexec /i $InstallFile ENABLED_COLLECTORS="cache,cpu,cpu_info,dfsr,iis,mssql,logical_disk,logon,memory,net,os,process,tcp,time,netframework,remote_fx,service,system" LISTEN_PORT="9115" /q
 ```
 SQL Server
 ```
-msiexec /i $InstallFile ENABLED_COLLECTORS="cache,cpu,cpu_info,cs,mssql,logical_disk,logon,memory,net,os,process,tcp,time,netframework,remote_fx,service,system" LISTEN_PORT="9115" /q
+msiexec /i $InstallFile ENABLED_COLLECTORS="cache,cpu,cpu_info,mssql,logical_disk,logon,memory,net,os,process,tcp,time,netframework,remote_fx,service,system" LISTEN_PORT="9115" /q
 ```
+
+2025-Sep: I am not sure all of the above listed COLLECTORS are valid. Looking at the windows_exporter
+[docs](https://github.com/prometheus-community/windows_exporter/tree/master/docs) I do not logon (for example).
 
 ## Authors
 
 Contributors names and contact info
 
 [@Gatt_](https://twitter.com/Gatt_)
+[Bob Tanner](https://github.com/basictheprogram)
 
 ## Version History
 
@@ -89,5 +93,3 @@ Contributors names and contact info
 ## License
 
 This project is licensed under the GNU General Public License v3.0 License - see the LICENSE.md file for details
-
-

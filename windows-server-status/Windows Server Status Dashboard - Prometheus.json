@@ -1,59 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "panel",
-      "id": "bargauge",
-      "name": "Bar gauge",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "gauge",
-      "name": "Gauge",
-      "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "12.0.0"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "stat",
-      "name": "Stat",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -80,7 +25,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": null,
+  "id": 6,
   "links": [
     {
       "icon": "bolt",
@@ -110,7 +55,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -131,7 +76,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -273,7 +219,8 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "rgba(245, 54, 54, 0.9)"
+                      "color": "rgba(245, 54, 54, 0.9)",
+                      "value": 0
                     },
                     {
                       "color": "rgba(237, 129, 40, 0.89)",
@@ -281,7 +228,7 @@
                     },
                     {
                       "color": "rgba(50, 172, 45, 0.97)",
-                      "value": 172800
+                      "value": 259200
                     }
                   ]
                 }
@@ -321,7 +268,8 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "rgba(50, 172, 45, 0.97)"
+                      "color": "rgba(50, 172, 45, 0.97)",
+                      "value": 0
                     },
                     {
                       "color": "rgba(237, 129, 40, 0.89)",
@@ -369,7 +317,8 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "rgba(50, 172, 45, 0.97)"
+                      "color": "rgba(50, 172, 45, 0.97)",
+                      "value": 0
                     },
                     {
                       "color": "rgba(237, 129, 40, 0.89)",
@@ -471,7 +420,8 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "rgba(50, 172, 45, 0.97)"
+                      "color": "rgba(50, 172, 45, 0.97)",
+                      "value": 0
                     },
                     {
                       "color": "rgba(237, 129, 40, 0.89)",
@@ -519,15 +469,16 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "rgba(50, 172, 45, 0.97)"
+                      "color": "rgba(50, 172, 45, 0.97)",
+                      "value": 0
                     },
                     {
                       "color": "rgba(237, 129, 40, 0.89)",
-                      "value": 75
+                      "value": 60
                     },
                     {
                       "color": "rgba(245, 54, 54, 0.9)",
-                      "value": 85
+                      "value": 80
                     }
                   ]
                 }
@@ -661,7 +612,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 498
+                "value": 245
               }
             ]
           },
@@ -745,7 +696,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 162
+                "value": 142
               }
             ]
           },
@@ -776,7 +727,7 @@
         ]
       },
       "gridPos": {
-        "h": 11,
+        "h": 8,
         "w": 24,
         "x": 0,
         "y": 1
@@ -795,14 +746,15 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
-          "expr": "windows_os_info{job=~\"$job\"} * on(instance) group_right(product) windows_cs_hostname",
+          "editorMode": "code",
+          "expr": "windows_os_info{job=~\"$job\"} * on(instance) group_right(product) windows_os_hostname",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -812,7 +764,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
           "expr": "time()-windows_system_boot_time_timestamp{job=~\"$job\"}",
@@ -825,9 +777,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
-          "expr": "windows_cs_logical_processors{job=~\"$job\"}-0",
+          "editorMode": "code",
+          "expr": "windows_cpu_logical_processor{job=~\"$job\"}-0",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -837,7 +790,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "avg by (instance) (windows_cpu_core_frequency_mhz{job=~\"$job\"})",
           "format": "table",
@@ -849,7 +802,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "100-(avg by (instance) (irate(windows_cpu_time_total{job=~\"$job\",mode=\"idle\"}[2m])) * 100)",
           "format": "table",
@@ -861,9 +814,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
-          "expr": "windows_cs_physical_memory_bytes{job=~\"$job\"}-0",
+          "editorMode": "code",
+          "expr": "windows_memory_physical_total_bytes{job=~\"$job\"}-0",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -873,9 +827,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
-          "expr": "100-100 * windows_os_physical_memory_free_bytes{job=~\"$job\"} / windows_cs_physical_memory_bytes{job=~\"$job\"}",
+          "editorMode": "code",
+          "expr": "100 * (1 - (windows_memory_available_bytes{job=~\"$job\"} / windows_memory_physical_total_bytes{job=~\"$job\"}))",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -885,7 +840,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "1-(windows_logical_disk_free_bytes{job=~\"$job\",volume=~\"C:\"}/windows_logical_disk_size_bytes{job=~\"$job\",volume=~\"C:\"})",
           "format": "table",
@@ -897,7 +852,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "(sum(windows_logical_disk_size_bytes{volume!~\"Harddisk.*\"}) by (instance) - sum(windows_logical_disk_free_bytes{volume!~\"Harddisk.*\"}) by (instance)) / sum(windows_logical_disk_size_bytes{volume!~\"Harddisk.*\"}) by (instance) ",
           "format": "table",
@@ -909,7 +864,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
           "expr": "windows_system_processes{job=~\"$job\"}",
@@ -922,7 +877,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "sum by (instance) (windows_service_state{job=~\"$job\",state=~\"running\"})",
           "format": "table",
@@ -946,7 +901,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -993,7 +948,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -1009,7 +965,7 @@
         "h": 6,
         "w": 5,
         "x": 0,
-        "y": 12
+        "y": 9
       },
       "id": 47,
       "options": {
@@ -1029,12 +985,12 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "100-(avg by (instance) (irate(windows_cpu_time_total{job=~\"$job\",mode=\"idle\"}[2m])) * 100)",
           "hide": false,
@@ -1050,7 +1006,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -1096,7 +1052,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -1200,7 +1157,7 @@
         "h": 6,
         "w": 5,
         "x": 5,
-        "y": 12
+        "y": 9
       },
       "id": 49,
       "options": {
@@ -1220,14 +1177,15 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
-          "expr": "100.0-100 * windows_os_physical_memory_free_bytes{job=~\"$job\"} / windows_cs_physical_memory_bytes{job=~\"$job\"}",
+          "editorMode": "code",
+          "expr": "100 * (1 - (windows_memory_available_bytes{job=~\"$job\"} / windows_memory_physical_total_bytes{job=~\"$job\"}))",
           "instant": false,
           "interval": "",
           "legendFormat": "{{instance}}",
@@ -1240,7 +1198,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -1286,7 +1244,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -1302,7 +1261,7 @@
         "h": 6,
         "w": 5,
         "x": 10,
-        "y": 12
+        "y": 9
       },
       "id": 53,
       "options": {
@@ -1322,7 +1281,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "application": {
@@ -1330,7 +1289,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "max by (instance) (irate(windows_net_bytes_sent_total{job=~\"$job\",nic!~'isatap.*|VPN.*'}[2m]))*8",
           "format": "time_series",
@@ -1362,7 +1321,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "-max by (instance) (irate(windows_net_bytes_received_total{job=~\"$job\",nic!~'isatap.*|VPN.*'}[2m]))*8",
           "format": "time_series",
@@ -1395,7 +1354,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -1441,7 +1400,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -1457,7 +1417,7 @@
         "h": 6,
         "w": 5,
         "x": 15,
-        "y": 12
+        "y": 9
       },
       "id": 51,
       "options": {
@@ -1477,7 +1437,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "application": {
@@ -1485,7 +1445,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "-max by (instance) (irate(windows_logical_disk_read_bytes_total[2m]))",
           "format": "time_series",
@@ -1517,7 +1477,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "max by (instance) (irate(windows_logical_disk_write_bytes_total[2m]))",
           "format": "time_series",
@@ -1550,7 +1510,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -1596,7 +1556,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -1612,7 +1573,7 @@
         "h": 6,
         "w": 4,
         "x": 20,
-        "y": 12
+        "y": 9
       },
       "id": 55,
       "options": {
@@ -1632,7 +1593,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "application": {
@@ -1640,7 +1601,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "-max by (instance) (irate(windows_logical_disk_reads_total[2m]))",
           "format": "time_series",
@@ -1672,7 +1633,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "max by (instance) (irate(windows_logical_disk_writes_total[2m]))",
           "format": "time_series",
@@ -1708,7 +1669,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 18
+        "y": 15
       },
       "id": 43,
       "panels": [],
@@ -1718,7 +1679,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "description": "",
       "fieldConfig": {
@@ -1754,7 +1715,7 @@
         "h": 2,
         "w": 4,
         "x": 0,
-        "y": 19
+        "y": 16
       },
       "id": 33,
       "maxDataPoints": 100,
@@ -1782,7 +1743,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
           "expr": "(time() - windows_system_boot_time_timestamp {instance=\"$instance\"})",
@@ -1798,7 +1759,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "description": "",
       "fieldConfig": {
@@ -1822,7 +1783,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -1838,7 +1800,7 @@
         "h": 2,
         "w": 2,
         "x": 4,
-        "y": 19
+        "y": 16
       },
       "id": 35,
       "maxDataPoints": 100,
@@ -1847,6 +1809,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1858,16 +1821,17 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.1",
+      "pluginVersion": "12.1.1",
       "repeat": "host",
       "repeatDirection": "v",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
-          "expr": "windows_cs_logical_processors{instance=~\"$instance\"}",
+          "editorMode": "code",
+          "expr": "windows_cpu_logical_processor{instance=~\"$instance\"}",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -1882,7 +1846,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "description": "",
       "fieldConfig": {
@@ -1906,7 +1870,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -1922,7 +1887,7 @@
         "h": 2,
         "w": 2,
         "x": 6,
-        "y": 19
+        "y": 16
       },
       "id": 37,
       "maxDataPoints": 100,
@@ -1931,6 +1896,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1942,16 +1908,17 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.1",
+      "pluginVersion": "12.1.1",
       "repeat": "host",
       "repeatDirection": "v",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
-          "expr": "windows_cs_physical_memory_bytes{instance=\"$instance\"}",
+          "editorMode": "code",
+          "expr": "windows_memory_physical_total_bytes{instance=\"$instance\"}",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -1966,7 +1933,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -1980,7 +1947,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "#EAB839",
@@ -2000,7 +1968,7 @@
         "h": 6,
         "w": 8,
         "x": 8,
-        "y": 19
+        "y": 16
       },
       "id": 23,
       "options": {
@@ -2027,13 +1995,14 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
+          "editorMode": "code",
           "expr": "100-(windows_logical_disk_free_bytes{job=~\"$job\",instance=~\"$instance\",volume !~\"HarddiskVolume.+\"} / windows_logical_disk_size_bytes{job=~\"$job\",instance=~\"$instance\",volume !~\"HarddiskVolume.+\"})*100",
           "instant": false,
           "interval": "",
@@ -2047,7 +2016,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -2094,7 +2063,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -2126,7 +2096,7 @@
         "h": 6,
         "w": 8,
         "x": 16,
-        "y": 19
+        "y": 16
       },
       "id": 27,
       "options": {
@@ -2144,12 +2114,12 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
           "expr": "windows_system_processes{job=~\"$job\",instance=~\"$instance\"}",
@@ -2165,7 +2135,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -2188,7 +2158,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#299c46"
+                "color": "#299c46",
+                "value": 0
               },
               {
                 "color": "rgba(237, 129, 40, 0.89)",
@@ -2208,7 +2179,7 @@
         "h": 4,
         "w": 2,
         "x": 0,
-        "y": 21
+        "y": 18
       },
       "id": 19,
       "maxDataPoints": 100,
@@ -2227,18 +2198,20 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
-          "expr": "100 - (avg by (instance) (irate(windows_cpu_time_total{mode=\"idle\", instance=~\"$instance.*\"}[$__interval])) * 100)",
+          "editorMode": "code",
+          "expr": "100 - (avg by (instance) (\n  irate(windows_cpu_time_total{mode=\"idle\", instance=\"localhost:9182\"}[5m])\n) * 100)",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -2248,7 +2221,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -2272,7 +2245,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#299c46"
+                "color": "#299c46",
+                "value": 0
               },
               {
                 "color": "rgba(237, 129, 40, 0.89)",
@@ -2292,7 +2266,7 @@
         "h": 4,
         "w": 2,
         "x": 2,
-        "y": 21
+        "y": 18
       },
       "id": 21,
       "maxDataPoints": 100,
@@ -2311,14 +2285,15 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
-          "expr": "100-(windows_os_physical_memory_free_bytes{job=~\"$job\",instance=~\"$instance\"} / windows_cs_physical_memory_bytes{job=~\"$job\",instance=~\"$instance\"})*100",
+          "editorMode": "code",
+          "expr": "100-(windows_memory_physical_free_bytes{job=~\"$job\",instance=~\"$instance\"} / windows_memory_physical_total_bytes{job=~\"$job\",instance=~\"$instance\"})*100",
           "instant": false,
           "refId": "A"
         }
@@ -2329,7 +2304,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -2354,7 +2329,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#299c46"
+                "color": "#299c46",
+                "value": 0
               },
               {
                 "color": "rgba(237, 129, 40, 0.89)",
@@ -2374,7 +2350,7 @@
         "h": 4,
         "w": 2,
         "x": 4,
-        "y": 21
+        "y": 18
       },
       "id": 17,
       "maxDataPoints": 100,
@@ -2393,18 +2369,20 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
-          "expr": "(sum(irate(windows_net_bytes_total{instance=\"$instance\"}[1m])) > 1)* 8",
+          "editorMode": "code",
+          "expr": "(sum(irate(windows_net_bytes_total{instance=\"$instance\"}[5m])) > 1)* 8",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -2414,7 +2392,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -2438,7 +2416,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#299c46"
+                "color": "#299c46",
+                "value": 0
               },
               {
                 "color": "rgba(237, 129, 40, 0.89)",
@@ -2458,7 +2437,7 @@
         "h": 4,
         "w": 2,
         "x": 6,
-        "y": 21
+        "y": 18
       },
       "id": 57,
       "maxDataPoints": 100,
@@ -2477,12 +2456,12 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "(sum(windows_logical_disk_size_bytes{volume!~\"Harddisk.*\", instance=\"$instance\"}) by (instance) - sum(windows_logical_disk_free_bytes{volume!~\"Harddisk.*\", instance=\"$instance\"}) by (instance)) / sum(windows_logical_disk_size_bytes{volume!~\"Harddisk.*\", instance=\"$instance\"}) by (instance) * 100",
           "instant": false,
@@ -2495,7 +2474,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -2541,7 +2520,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -2557,7 +2537,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 25
+        "y": 22
       },
       "id": 25,
       "options": {
@@ -2578,12 +2558,12 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
           "expr": "100 - avg(irate(windows_cpu_time_total{job=~\"$job\",instance=~\"$instance\",mode=\"idle\"}[5m]))*100",
@@ -2600,7 +2580,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -2647,7 +2627,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -2781,7 +2762,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 25
+        "y": 22
       },
       "id": 14,
       "options": {
@@ -2802,7 +2783,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "application": {
@@ -2810,10 +2791,10 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
-          "expr": "windows_cs_physical_memory_bytes{job=~\"$job\",instance=~\"$instance\"}",
+          "expr": "windows_memory_physical_total_bytes{job=~\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -2844,10 +2825,10 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
-          "expr": "windows_os_physical_memory_free_bytes{job=~\"$job\",instance=~\"$instance\"}",
+          "expr": "windows_memory_physical_free_bytes{job=~\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -2871,48 +2852,6 @@
           "range": true,
           "refId": "C",
           "step": 5
-        },
-        {
-          "application": {
-            "filter": ""
-          },
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "expr": "windows_os_virtual_memory_bytes{job=~\"$job\",instance=~\"$instance\"}",
-          "format": "time_series",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": false,
-          "host": {
-            "filter": ""
-          },
-          "intervalFactor": 1,
-          "item": {
-            "filter": ""
-          },
-          "legendFormat": "Virtual memory",
-          "metric": "mysql_global_status_questions",
-          "mode": 0,
-          "options": {
-            "showDisabledItems": false
-          },
-          "refId": "A",
-          "step": 5
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "expr": "windows_os_virtual_memory_free_bytes{job=~\"$job\",instance=~\"$instance\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "Free virtual memory",
-          "refId": "D"
         }
       ],
       "title": "Memory details",
@@ -2921,7 +2860,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -2968,7 +2907,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -2984,7 +2924,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 25
+        "y": 22
       },
       "id": 12,
       "options": {
@@ -3003,7 +2943,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "application": {
@@ -3011,10 +2951,10 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
-          "expr": "sum by (process) (rate(windows_process_cpu_time_total{process !~\"Idle\",instance=~\"$instance\"}[$__rate_interval]))",
+          "expr": "sum by (process) (rate(windows_process_cpu_time_total{process !~\"Idle\",instance=~\"$instance\"}[5m]))",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -3046,7 +2986,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "description": "",
       "fieldConfig": {
@@ -3060,7 +3000,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -3076,7 +3017,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 33
+        "y": 30
       },
       "id": 15,
       "options": {
@@ -3103,7 +3044,7 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "application": {
@@ -3111,7 +3052,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
           "expr": "windows_logical_disk_size_bytes{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"} - windows_logical_disk_free_bytes{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"}",
@@ -3145,7 +3086,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
           "expr": "windows_logical_disk_size_bytes{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"}",
@@ -3180,7 +3121,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -3226,7 +3167,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -3242,7 +3184,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 33
+        "y": 30
       },
       "id": 8,
       "options": {
@@ -3263,7 +3205,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "application": {
@@ -3271,7 +3213,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
           "expr": "irate(windows_logical_disk_read_bytes_total{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"}[5m])\r\n",
@@ -3304,7 +3246,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
           "expr": "irate(windows_logical_disk_write_bytes_total{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"}[5m])\r\n",
@@ -3338,7 +3280,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -3384,7 +3326,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -3400,7 +3343,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 33
+        "y": 30
       },
       "id": 9,
       "options": {
@@ -3421,7 +3364,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "application": {
@@ -3429,7 +3372,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
           "expr": "irate(windows_logical_disk_reads_total{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"}[5m])",
@@ -3462,7 +3405,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
           "expr": "irate(windows_logical_disk_writes_total{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"}[5m])",
@@ -3496,7 +3439,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -3542,7 +3485,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -3558,7 +3502,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 41
+        "y": 38
       },
       "id": 11,
       "options": {
@@ -3579,7 +3523,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "application": {
@@ -3587,7 +3531,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
           "expr": "irate(windows_net_bytes_sent_total{job=~\"$job\",instance=~\"$instance\",nic!~'isatap.*|VPN.*'}[5m])*8>0\r\n",
@@ -3621,7 +3565,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "editorMode": "code",
           "expr": "irate(windows_net_bytes_received_total{job=~\"$job\",instance=~\"$instance\",nic!~'isatap.*|VPN.*'}[5m])*8\n",
@@ -3655,7 +3599,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -3701,7 +3645,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -3717,7 +3662,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 41
+        "y": 38
       },
       "id": 29,
       "options": {
@@ -3737,12 +3682,12 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
           "expr": "  irate(windows_net_bytes_total{instance=~\"$instance\"}[5m]) / windows_net_current_bandwidth_bytes{instance=~\"$instance\"} * 100",
           "legendFormat": "{{nic}}",
@@ -3755,7 +3700,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "bewsuuj7wyyo0e"
       },
       "fieldConfig": {
         "defaults": {
@@ -3801,7 +3746,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -3817,7 +3763,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 41
+        "y": 38
       },
       "id": 10,
       "options": {
@@ -3835,7 +3781,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "application": {
@@ -3843,9 +3789,10 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
-          "expr": "irate(windows_net_packets_outbound_discarded_total{instance=~\"$instance\", nic!~\"isatap.+\"}[$__rate_interval]) + irate(windows_net_packets_outbound_errors_total{instance=~\"$instance\"}[$__rate_interval])",
+          "editorMode": "code",
+          "expr": "irate(windows_net_packets_outbound_discarded_total{instance=\"$instance\"}[5m]) + irate(windows_net_packets_outbound_errors_total{instance=\"$instance\"}[5m])",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -3866,6 +3813,7 @@
           "options": {
             "showDisabledItems": false
           },
+          "range": true,
           "refId": "B",
           "step": 15
         },
@@ -3875,9 +3823,10 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "bewsuuj7wyyo0e"
           },
-          "expr": "irate(windows_net_packets_received_discarded_total{instance=~\"$instance\", nic!~\"isatap.+\"}[$__rate_interval]) + irate(windows_net_packets_received_errors_total{instance=~\"$instance\"}[$__rate_interval])",
+          "editorMode": "code",
+          "expr": "irate(windows_net_packets_received_discarded_total{instance=\"$instance\"}[5m]) + irate(windows_net_packets_received_errors_total{instance=\"$instance\"}[5m])",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -3898,6 +3847,7 @@
           "options": {
             "showDisabledItems": false
           },
+          "range": true,
           "refId": "A",
           "step": 15
         }
@@ -3906,6 +3856,7 @@
       "type": "timeseries"
     }
   ],
+  "preload": false,
   "refresh": "1m",
   "schemaVersion": 41,
   "tags": [
@@ -3916,19 +3867,23 @@
   "templating": {
     "list": [
       {
-        "current": {},
+        "current": {
+          "text": "prometheus.scrape.windows_exporter",
+          "value": "prometheus.scrape.windows_exporter"
+        },
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "bewsuuj7wyyo0e"
         },
-        "definition": "label_values(windows_cs_hostname, job)",
+        "definition": "label_values(windows_os_hostname,job)",
         "includeAll": false,
         "label": "Job",
         "name": "job",
         "options": [],
         "query": {
-          "query": "label_values(windows_cs_hostname, job)",
-          "refId": "Prometheus-job-Variable-Query"
+          "qryType": 1,
+          "query": "label_values(windows_os_hostname,job)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
         "regex": "",
@@ -3936,19 +3891,23 @@
         "type": "query"
       },
       {
-        "current": {},
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "bewsuuj7wyyo0e"
         },
-        "definition": "label_values(windows_cs_hostname{job=~\"$job\"}, hostname)",
+        "definition": "label_values(windows_os_hostname{job=~\"$job\"},hostname)",
         "includeAll": true,
         "label": "Hostname",
         "name": "hostname",
         "options": [],
         "query": {
-          "query": "label_values(windows_cs_hostname{job=~\"$job\"}, hostname)",
-          "refId": "Prometheus-hostname-Variable-Query"
+          "qryType": 1,
+          "query": "label_values(windows_os_hostname{job=~\"$job\"},hostname)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
         "regex": "",
@@ -3956,19 +3915,23 @@
         "type": "query"
       },
       {
-        "current": {},
+        "current": {
+          "text": "localhost:9182",
+          "value": "localhost:9182"
+        },
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "bewsuuj7wyyo0e"
         },
-        "definition": "label_values(windows_cs_hostname{job=~\"$job\",hostname=~\"$hostname\"}, instance)",
+        "definition": "label_values(windows_os_hostname{job=~\"$job\", hostname=~\"$hostname\"},instance)",
         "includeAll": false,
         "label": "instance",
         "name": "instance",
         "options": [],
         "query": {
-          "query": "label_values(windows_cs_hostname{job=~\"$job\",hostname=~\"$hostname\"}, instance)",
-          "refId": "Prometheus-instance-Variable-Query"
+          "qryType": 1,
+          "query": "label_values(windows_os_hostname{job=~\"$job\", hostname=~\"$hostname\"},instance)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
         "regex": "",
@@ -3976,20 +3939,24 @@
         "type": "query"
       },
       {
-        "current": {},
+        "current": {
+          "text": "ARQ",
+          "value": "ARQ"
+        },
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "bewsuuj7wyyo0e"
         },
-        "definition": "label_values(windows_cs_hostname{job=~\"$job\",instance=~\"$instance\"}, hostname)",
+        "definition": "label_values(windows_os_hostname{job=~\"$job\", instance=~\"$instance\"},hostname)",
         "hide": 2,
         "includeAll": false,
         "label": "Show Hostname",
         "name": "show_hostname",
         "options": [],
         "query": {
-          "query": "label_values(windows_cs_hostname{job=~\"$job\",instance=~\"$instance\"}, hostname)",
-          "refId": "Prometheus-show_hostname-Variable-Query"
+          "qryType": 1,
+          "query": "label_values(windows_os_hostname{job=~\"$job\", instance=~\"$instance\"},hostname)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
         "regex": "",
@@ -3998,7 +3965,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -4017,6 +3984,5 @@
   "timezone": "",
   "title": "Windows Server Status Dashboard - Prometheus",
   "uid": "-gjIslqnz",
-  "version": 60,
-  "weekStart": ""
+  "version": 17
 }
